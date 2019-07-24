@@ -71,7 +71,7 @@ class ProductController extends AppBaseController
      */
     public function show($id)
     {
-        $product = $this->productRepository->find($id);
+        $product = $this->productRepository->findWithTrashed($id);
 
         if (empty($product)) {
             Flash::error('Product not found');

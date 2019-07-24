@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Product;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductRepository
@@ -36,5 +37,20 @@ class ProductRepository extends BaseRepository
     public function model()
     {
         return Product::class;
+    }
+
+    /**
+     * Find products by id including deleted registries.
+     *
+     * @param $id
+     * @param array $columns
+     *
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+    public function findWithTrashed($id, $columns = ['*'])
+    {
+        $query = $this->model->newQuery();
+
+        return $query->withTrashed()->find($id, $columns);
     }
 }

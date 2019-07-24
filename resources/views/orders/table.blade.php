@@ -7,7 +7,7 @@
         <th>Value</th>
         <th>Ordered At</th>
         <th>Requester Name</th>
-        <th>Requester.address</th>
+        <th>Requester Address</th>
         <th>Forwarding Agent Name</th>
         <th>Status</th>
                 <th colspan="3">Action</th>
@@ -16,14 +16,14 @@
         <tbody>
         @foreach($orders as $order)
             <tr>
-                <td>{!! $order->product_id !!}</td>
-            <td>{!! $order->amount !!}</td>
-            <td>{!! $order->value !!}</td>
-            <td>{!! $order->ordered_at !!}</td>
-            <td>{!! $order->requester_name !!}</td>
-            <td>{!! $order->requester.address !!}</td>
-            <td>{!! $order->forwarding_agent_name !!}</td>
-            <td>{!! $order->status !!}</td>
+                <td><a target="_blank" href="{{ route('products.show', $order->product_id) }}">{!! $order->product_id !!}</a></td>
+                <td>{!! $order->amount !!}</td>
+                <td>{!! $order->value !!}</td>
+                <td>{!! $order->ordered_at !!}</td>
+                <td>{!! $order->requester_name !!}</td>
+                <td>{!! $order->displayRequesterAddress() !!}</td>
+                <td>{!! $order->forwarding_agent_name !!}</td>
+                <td>{!! $order->displayStatus() !!}</td>
                 <td>
                     {!! Form::open(['route' => ['orders.destroy', $order->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

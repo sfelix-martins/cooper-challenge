@@ -1,7 +1,7 @@
 <!-- Product Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('product_id', 'Product Id:') !!}
-    {!! Form::text('product_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('product_id', 'Product:') !!}
+    {!! Form::select('product_id', $products, null, ['class' => 'form-control'])  !!}
 </div>
 
 <!-- Amount Field -->
@@ -11,25 +11,10 @@
 </div>
 
 <!-- Value Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('value', 'Value:') !!}
-    {!! Form::number('value', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Ordered At Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('ordered_at', 'Ordered At:') !!}
-    {!! Form::date('ordered_at', null, ['class' => 'form-control','id'=>'ordered_at']) !!}
-</div>
-
-@section('scripts')
-    <script type="text/javascript">
-        $('#ordered_at').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: false
-        })
-    </script>
-@endsection
+{{--<div class="form-group col-sm-6">--}}
+{{--    {!! Form::label('value', 'Value:') !!}--}}
+{{--    {!! Form::number('value', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Requester Name Field -->
 <div class="form-group col-sm-6">
@@ -37,10 +22,34 @@
     {!! Form::text('requester_name', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Requester.address Field -->
+<!-- Requester Address Zipcode Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('requester.address', 'Requester.address:') !!}
-    {!! Form::text('requester.address', null, ['class' => 'form-control']) !!}
+    {!! Form::label('requester_address[zipcode]', 'Requester Zipcode:') !!}
+    {!! Form::text('requester_address[zipcode]', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Requester Address Address Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('requester_address[address]', 'Requester Address:') !!}
+    {!! Form::text('requester_address[address]', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Requester Address UF Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('requester_address[uf]', 'Requester UF:') !!}
+    {!! Form::text('requester_address[uf]', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Requester Address City Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('requester_address[city]', 'Requester City:') !!}
+    {!! Form::text('requester_address[city]', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Requester Address Number Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('requester_address[number]', 'Requester Number:') !!}
+    {!! Form::text('requester_address[number]', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Forwarding Agent Name Field -->
@@ -50,10 +59,12 @@
 </div>
 
 <!-- Status Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('status', 'Status:') !!}
-    {!! Form::text('status', null, ['class' => 'form-control']) !!}
-</div>
+@if (request()->routeIs('orders.edit'))
+    <div class="form-group col-sm-6">
+        {!! Form::label('status', 'Status:') !!}
+        {!! Form::select('status', $statuses, null, ['class' => 'form-control']) !!}
+    </div>
+@endif
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

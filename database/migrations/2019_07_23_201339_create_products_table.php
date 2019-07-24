@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->decimal('value');
             $table->integer('amount');
             $table->string('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

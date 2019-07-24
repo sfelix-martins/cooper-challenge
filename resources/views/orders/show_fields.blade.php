@@ -34,10 +34,10 @@
     <p>{!! $order->requester_name !!}</p>
 </div>
 
-<!-- Requester.address Field -->
+<!-- Requester Address Field -->
 <div class="form-group">
-    {!! Form::label('requester.address', 'Requester.address:') !!}
-    <p>{!! $order->requester.address !!}</p>
+    {!! Form::label('requester_address', 'Requester Address:') !!}
+    <p>{!! $order->displayRequesterAddress() !!}</p>
 </div>
 
 <!-- Forwarding Agent Name Field -->
@@ -49,7 +49,7 @@
 <!-- Status Field -->
 <div class="form-group">
     {!! Form::label('status', 'Status:') !!}
-    <p>{!! $order->status !!}</p>
+    <p>{!! $order->displayStatus() !!}</p>
 </div>
 
 <!-- Created At Field -->

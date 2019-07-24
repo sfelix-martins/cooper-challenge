@@ -1,3 +1,10 @@
+<!-- Trashed Warning -->
+@if ($product->trashed())
+    <div class="alert-danger">
+        <p>This registry was deleted</p>
+    </div>
+@endif
+
 <!-- Id Field -->
 <div class="form-group">
     {!! Form::label('id', 'Id:') !!}

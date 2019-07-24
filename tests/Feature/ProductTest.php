@@ -82,6 +82,22 @@ class ProductTest extends TestCase
     /**
      * @test
      */
+    public function it_ll_show_a_deleted_product()
+    {
+        /** @var Product $product */
+        $product = factory(Product::class)->create();
+
+        $product->delete();
+
+        $this->get('/products/'.$product->id)
+            ->assertSuccessful()
+            ->assertViewIs('products.show')
+            ->assertViewHas('product', $product);
+    }
+
+    /**
+     * @test
+     */
     public function it_ll_show_the_edit_product_form()
     {
         /** @var Product $product */
@@ -146,7 +162,7 @@ class ProductTest extends TestCase
         $this->delete('/products/'.$product->id)
             ->assertRedirect('/products');
 
-        $this->assertDatabaseMissing('products', [
+        $this->assertSoftDeleted('products', [
             'id' => $product->id,
         ]);
     }
