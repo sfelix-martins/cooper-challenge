@@ -70,22 +70,22 @@ Ready! Now you are able to use the application features.
 
 ## Usage
 
-The following instruction presumes that you are serving the application on address `http://localhost:8080`. 
+The following instruction presumes that you are serving the application on address `http://localhost:8000`. 
 If you are serving in a different host, just change it.  
 
 ### Products
 
-Access the route `http://localhost:8080/products` in your browser and action to manage products will be shown.
+Access the route `http://localhost:8000/products` in your browser and action to manage products will be shown.
 
 ### Orders 
 
-Access the route `http://localhost:8080/orders` in your browser and action to manage orders will be shown.
+Access the route `http://localhost:8000/orders` in your browser and action to manage orders will be shown.
 
 ## Unit Testing
 
 ### Pre-requisites
 
-- [Sqlite3](https://www.sqlite.org/index.html)` 
+- [Sqlite3](https://www.sqlite.org/index.html)
 
 ### Running
 
