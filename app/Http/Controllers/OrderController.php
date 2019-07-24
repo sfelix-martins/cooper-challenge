@@ -154,7 +154,7 @@ class OrderController extends AppBaseController
         } catch (OrderException $e) {
             Flash::error($e->getMessage());
 
-            return view('orders.edit')->with('order', $order);
+            return $this->edit($id);
         }
 
         Flash::success('Order updated successfully.');
