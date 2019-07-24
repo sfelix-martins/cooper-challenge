@@ -35,7 +35,7 @@ class OrderTest extends TestCase
     {
         factory(Product::class, 3)->create();
 
-        $products = Product::all();
+        $products = Product::all()->pluck('name', 'id');
 
         $this->get('/orders/create')
             ->assertSuccessful()
@@ -118,7 +118,7 @@ class OrderTest extends TestCase
             ->assertViewHas([
                 'order' => $order,
                 'products' => $products,
-                'statuses' => OrderStatus::ALL,
+                'statuses' => OrderStatus::displayStatuses(),
             ]);
     }
 

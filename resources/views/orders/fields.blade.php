@@ -10,12 +10,6 @@
     {!! Form::number('amount', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Value Field -->
-{{--<div class="form-group col-sm-6">--}}
-{{--    {!! Form::label('value', 'Value:') !!}--}}
-{{--    {!! Form::number('value', null, ['class' => 'form-control']) !!}--}}
-{{--</div>--}}
-
 <!-- Requester Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('requester_name', 'Requester Name:') !!}
